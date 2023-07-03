@@ -16,16 +16,69 @@ export const defaultLang: Languages = "en";
  */
 export const translations = {
   en: {
-    nav: { home: "Home", about: "About", twitter: "Twitter" },
-    footer: { title: "Footer" },
+    nav: {
+      home: "Home",
+      about: "About",
+      elements: "Elements",
+      pages: {
+        contact: {
+          name: "Contact",
+          url: "/contact",
+        },
+        blog: {
+          name: "Blog",
+          url: "/blog",
+        },
+        authors: {
+          name: "Authors",
+          url: "/authors",
+        },
+        categories: {
+          name: "Categories",
+          url: "/categories",
+        },
+        search: {
+          name: "Search",
+          url: "/search",
+        },
+        error: {
+          name: "404 Page",
+          url: "/404",
+        },
+      },
+    },
   },
   fr: {
-    nav: { home: "Accueil", about: "À propos" },
-    job: {
-      desc: "This is a dev",
-    },
-    terms: {
-      join: "Welcome to translations",
+    nav: {
+      home: "Accueil",
+      about: "À propos",
+      elements: "Éléments",
+      pages: {
+        contact: {
+          name: "Contact",
+          url: "/contact",
+        },
+        blog: {
+          name: "Blog",
+          url: "/blog",
+        },
+        authors: {
+          name: "Auteurs",
+          url: "/authors",
+        },
+        categories: {
+          name: "Catégories",
+          url: "/categories",
+        },
+        search: {
+          name: "Recherche",
+          url: "/search",
+        },
+        error: {
+          name: "Page 404",
+          url: "/404",
+        },
+      },
     },
   },
 } as const;
