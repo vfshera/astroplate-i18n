@@ -7,6 +7,10 @@ import Footer from "@/partials/Footer.astro";
 import Header from "@/partials/Header.astro";
 import "@/styles/main.scss";
 
+import { getLangFromUrl } from "@/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+
 // font families
 const pf = theme.fonts.font_family.primary;
 const sf = theme.fonts.font_family.secondary;
@@ -27,7 +31,7 @@ const { title, meta_title, description, image, noindex, canonical } =
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <!-- favicon -->
     <link rel="shortcut icon" href={config.site.favicon} />
