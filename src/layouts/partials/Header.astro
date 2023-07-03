@@ -5,6 +5,11 @@ import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 import { IoSearch } from "react-icons/io5/index.js";
 
+import { getLangFromUrl } from "@/i18n";
+import LanguagePicker from "@/i18n/LanguagePicker.astro";
+
+const lang = getLangFromUrl(Astro.url);
+
 export interface ChildNavigationLink {
   name: string;
   url: string;
@@ -81,10 +86,10 @@ const { pathname } = Astro.url;
                   {menu.children?.map((child) => (
                     <li class="nav-dropdown-item">
                       <a
-                        href={child.url}
+                        href={`/${lang}${child.url}`}
                         class={`nav-dropdown-link block ${
-                          (pathname === `${child.url}/` ||
-                            pathname === child.url) &&
+                          (pathname === `/${lang}${child.url}/` ||
+                            pathname === `/${lang}${child.url}`) &&
                           "active"
                         }`}
                       >
@@ -97,9 +102,10 @@ const { pathname } = Astro.url;
             ) : (
               <li class="nav-item">
                 <a
-                  href={menu.url}
+                  href={`/${lang}${menu.url}`}
                   class={`nav-link block ${
-                    (pathname === `${menu.url}/` || pathname === menu.url) &&
+                    (pathname === `/${lang}${menu.url}/` ||
+                      pathname === `/${lang}${menu.url}`) &&
                     "active"
                   }`}
                 >
@@ -128,7 +134,7 @@ const { pathname } = Astro.url;
         settings.search && (
           <a
             class="mr-5 inline-block border-r border-border pr-5 text-xl text-dark hover:text-primary dark:border-darkmode-border dark:text-white"
-            href="/search"
+            href={`/${lang}/search`}
             aria-label="search"
           >
             <IoSearch />
@@ -136,6 +142,10 @@ const { pathname } = Astro.url;
         )
       }
       <ThemeSwitcher className="mr-5" />
+
+      <div class="mr-5">
+        <LanguagePicker />
+      </div>
       {
         navigation_button.enable && (
           <a
